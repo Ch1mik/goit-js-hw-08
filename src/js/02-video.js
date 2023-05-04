@@ -10,9 +10,13 @@ function currentTime({ seconds }) {
 }
 player.on('timeupdate', throttle(currentTime, 1000));
 
-player.ready().then(() => {
-  const playTime = localStorage.getItem(LOCALSTORAGE_KEY);
-  if (playTime) {
-    player.setCurrentTime(playTime);
-  }
-});
+const playTime = localStorage.getItem(LOCALSTORAGE_KEY);
+if (playTime) {
+  player.setCurrentTime(playTime);
+}
+// player.ready().then(() => {
+//   const playTime = localStorage.getItem(LOCALSTORAGE_KEY);
+//   if (playTime) {
+//     player.setCurrentTime(playTime);
+//   }
+// });
